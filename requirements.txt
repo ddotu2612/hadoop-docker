@@ -1,0 +1,10 @@
+wheel
+setuptools
+pathlib
+mrjob==0.7.4
+pyYAML
+py4j
+numpy
+pandas
+pyspark
+apache-airflow-providers-apache-spark
