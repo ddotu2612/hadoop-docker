@@ -64,3 +64,27 @@
 [2023-09-24 16:07:29,767] {manager.py:690} INFO - Searching for files in /home/airflow/dags
 [2023-09-24 16:07:29,796] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
 [2023-09-24 16:11:43,055] {manager.py:462} INFO - Exiting gracefully upon receiving signal 15
+[2023-09-26 14:55:22,524] {manager.py:480} INFO - Processing files using up to 2 processes at a time 
+[2023-09-26 14:55:22,526] {manager.py:481} INFO - Process each file at most once every 30 seconds
+[2023-09-26 14:55:22,532] {manager.py:482} INFO - Checking for new files in /home/airflow/dags every 300 seconds
+[2023-09-26 14:55:22,541] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 14:55:22,565] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:00:23,403] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:00:23,434] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:05:24,249] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:05:24,258] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:10:25,062] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:10:25,089] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:15:25,897] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:15:25,922] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:20:26,759] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:20:26,787] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:25:27,594] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:25:27,617] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:30:28,459] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:30:28,484] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:35:29,255] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:35:29,262] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:40:29,993] {manager.py:690} INFO - Searching for files in /home/airflow/dags
+[2023-09-26 15:40:30,005] {manager.py:693} INFO - There are 0 files in /home/airflow/dags
+[2023-09-26 15:41:37,664] {manager.py:462} INFO - Exiting gracefully upon receiving signal 15

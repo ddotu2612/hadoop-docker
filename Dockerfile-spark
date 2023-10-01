@@ -20,41 +20,6 @@ RUN apt-get install -y --no-install-recommends \
 COPY --from=jdk /usr/local/openjdk-11 /usr/lib/jvm/java-11-openjdk-arm64/
 ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64/
 
-# --------------------------------------------------------
-# HADOOP
-# --------------------------------------------------------
-ENV HADOOP_VERSION=3.3.1
-ENV HADOOP_URL=https://downloads.apache.org/hadoop/common/hadoop-$HADOOP_VERSION/hadoop-$HADOOP_VERSION.tar.gz
-ENV HADOOP_PREFIX=/opt/hadoop-$HADOOP_VERSION
-ENV HADOOP_CONF_DIR=/etc/hadoop
-ENV MULTIHOMED_NETWORK=1
-ENV USER=root
-ENV HADOOP_HOME=/opt/hadoop-$HADOOP_VERSION
-ENV PATH $HADOOP_PREFIX/bin/:$PATH
-ENV PATH $HADOOP_HOME/bin/:$PATH
-
-RUN set -x \
-    && curl -fSL "$HADOOP_URL" -o /tmp/hadoop.tar.gz \
-    && tar -xvf /tmp/hadoop.tar.gz -C /opt/ \
-    && rm /tmp/hadoop.tar.gz*
-
-RUN ln -s /opt/hadoop-$HADOOP_VERSION/etc/hadoop /etc/hadoop
-RUN mkdir /opt/hadoop-$HADOOP_VERSION/logs
-RUN mkdir /hadoop-data
-
-USER root
-
-ADD entrypoint.sh /entrypoint.sh
-RUN chmod a+x /entrypoint.sh
-
-COPY conf/core-site.xml $HADOOP_CONF_DIR/core-site.xml
-COPY conf/hdfs-site.xml $HADOOP_CONF_DIR/hdfs-site.xml
-COPY conf/mapred-site.xml $HADOOP_CONF_DIR/mapred-site.xml
-COPY conf/yarn-site.xml $HADOOP_CONF_DIR/yarn-site.xml
-
-# ADD hadoop.env /hadoop.env
-
-# RUN set -x && cd / && ./entrypoint.sh
 
 # --------------------------------------------------------
 # SPARK
@@ -70,8 +35,9 @@ ENV PYTHONHASHSEED=1
 
 RUN set -x \
     && curl -fSL "${SPARK_URL}" -o /tmp/spark.tar.gz \
-    && tar -xvf /tmp/spark.tar.gz -C /opt/ \
+    && tar -xvzf /tmp/spark.tar.gz -C /opt/ \
     && rm /tmp/spark.tar.gz*
+
 
 ADD conf/core-site.xml $SPARK_HOME/conf
 ADD conf/yarn-site.xml $SPARK_HOME/conf
@@ -105,7 +71,7 @@ RUN apt-get update && add-apt-repository ppa:deadsnakes/ppa \
          libgdk-pixbuf2.0-0 \
          libgtk-3-0 \
          libnspr4 \
-         libpango-1.0-0 \
+         libpango-1.0-0 \               
          libxss1 \
          fonts-liberation \
          libappindicator1 \
@@ -123,4 +89,4 @@ RUN pip install pikepdf Cython numpy wheel setuptools --force-reinstall
 ADD requirements.txt /requirements.txt
 
 # run install
-RUN pip install -r /requirements.txt
+RUN pip install -r /requirements.txt    
